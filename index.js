@@ -19,13 +19,13 @@ app.get('/usuarios', async (req, res) => {
 })
 
 app.post('/usuarios', async (req, res) => {
-    const {nome, idade} = req.body
+    const { nome, idade } = req.body
 
     try{
         const novo = await prisma.usuario.create({
             data: {
-                nome, 
-                idade
+                nome: nome, 
+                idade: idade
             }
         })
         res.status(200).json(`Usuario criado com sucesso`)
@@ -43,8 +43,8 @@ app.put('/usuarios/:id', async (req, res) => {
         const atualizado = await prisma.usuario.update({
             where: {id},
             data: {
-                nome,
-                idade
+                nome: nome,
+                idade: idade
             }
         })
         res.status(200).json(`Usuario ${id} atualizado com sucesso!`)
