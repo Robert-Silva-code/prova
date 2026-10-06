@@ -8,7 +8,7 @@ require('dotenv').config()
 const prisma = require('./lib/prisma')
 
 app.use(cors())
-app.use(express.json)
+app.use(express.json())
 
 app.get('/teste', (req, res) => { res.json({ mensagem: "Rodando!" }); }); 
 
